@@ -1,0 +1,6 @@
+<div>
+    Enter todo item: <input type="text" [(ngModel)]="newTodo">
+    <button (click)="addTodo()">Add</button>
+    <div *ngIf="error">Please enter value first</div>
+    <div *ngFor="let item of todos; index as i"> {{item}} <button (click)="remove(i)">Delete</button> </div> <br>
+</div>
