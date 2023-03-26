@@ -1,4 +1,5 @@
-Number 1: <input [(ngModel)]="num1" type="number"> <br>
-Number 2: <input [(ngModel)]="num2" type="number"> <br>
-<button (click)="add()">Add</button> <br>
-{{result}}
+<div *ngIf="isLoggedIn" >Login successfull</div>
+<div *ngIf="isLoggedInFailed">Login Failed</div>
+Enter email : <input type="text" [(ngModel)]="username"> <br>
+Enter password : <input type="password" [(ngModel)]="password"> <br>
+<button (click)="login()">Login</button>

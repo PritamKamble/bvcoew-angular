@@ -7,11 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  num1 = 0;
-  num2 = 0;
-  result = 0;
+  username = '';
+  password = '';
 
-  add() {
-    this.result = this.num1 + this.num2;
+  isLoggedIn = false;
+  isLoggedInFailed = false;
+
+  login() {
+    this.isLoggedIn = false;
+    this.isLoggedInFailed = false;
+
+    if (this.username == 'admin' && this.password == 'admin') {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedInFailed = true;
+    }
   }
 }
