@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,18 +10,17 @@ import { Router } from '@angular/router';
 export class TodoComponent {
 
   constructor(
-    private router: Router
+    private router: Router,
+    public todoService: TodoService
   ) {}
 
   newTodo = '';
-  todos: any[] = [];
-
   error = false;
 
   addTodo() {
     this.error = false;
     if (this.newTodo) {
-      this.todos.push(this.newTodo);
+      this.todoService.todos.push(this.newTodo);
       this.newTodo = '';
     } else {
       this.error = true;
@@ -28,11 +28,12 @@ export class TodoComponent {
   }
 
   remove(index: any) {
-    this.todos.splice(index, 1);
+    this.todoService.todos.splice(index, 1);
   }
 
   onLogoutClick() {
     this.router.navigate(['login']);
+    this.todoService.isLoggedIn = false;
   }
 
 
