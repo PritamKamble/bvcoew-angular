@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent {
+
+  constructor(
+    private router: Router
+  ) {}
 
   newTodo = '';
   todos: any[] = [];
@@ -24,6 +29,10 @@ export class TodoComponent {
 
   remove(index: any) {
     this.todos.splice(index, 1);
+  }
+
+  onLogoutClick() {
+    this.router.navigate(['login']);
   }
 
 

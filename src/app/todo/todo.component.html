@@ -1,4 +1,9 @@
 <div>
+  <button (click)="onLogoutClick()">
+    Logout
+  </button>
+</div>
+<div>
     Enter todo item: <input type="text" [(ngModel)]="newTodo">
     <button (click)="addTodo()">Add</button>
     <div *ngIf="error">Please enter value first</div>
